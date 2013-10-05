@@ -22,7 +22,8 @@ module.exports = function(grunt) {
                     'bower_components/jquery/jquery.js',
                     'bower_components/jquery/jquery.min.map',
                     'bower_components/bootstrap/docs/assets/js/bootstrap.js',
-                    'bower_components/handlebars/handlebars.runtime.js'
+                    'bower_components/handlebars/handlebars.runtime.js',
+                    'bower_components/eventEmitter/EventEmitter.js',
                     ]
                 },
                 {
@@ -64,7 +65,7 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
-                    'app/js/template.js': 'templates/*.html'
+                    'app/js/lib/template.js': 'templates/*.html'
                 }
             }
         }
