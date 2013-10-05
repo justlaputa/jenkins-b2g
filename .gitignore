@@ -1,7 +1,7 @@
 bower_components/
 node_modules/
 
-app/js/
+app/js/lib/
 app/css/
 app/img/
-app/fonts/
+app/font/

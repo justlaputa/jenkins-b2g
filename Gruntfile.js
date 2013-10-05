@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 {
                     expand: true,
                     flatten: true,
-                    dest: 'app/js/',
+                    dest: 'app/js/lib/',
                     src: [
                     'bower_components/jquery/jquery.js',
                     'bower_components/jquery/jquery.min.map',
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                 {
                     expand: true,
                     flatten: true,
-                    dest: 'app/fonts/',
+                    dest: 'app/font/',
                     src: [
                     'bower_components/font-awesome/font/*'
                     ]
