@@ -1,0 +1,11 @@
+{
+  "name": "jenkins-b2g",
+  "version": "0.0.1",
+  "description": "jenkins status monitor in firefox os",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Xiao Han",
+    "url": "http://laputa.io"
+  },
+  "default_locale": "en"
+}
