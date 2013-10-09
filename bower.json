@@ -1,7 +1,7 @@
 {
   "name": "jenkins-b2g",
   "dependencies": {
-    "bootstrap": "2.x",
+    "bootstrap": "3.x",
     "jquery": "2.x",
     "handlebars": "1.0.x",
     "font-awesome": "~3.0.2",

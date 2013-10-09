@@ -1,42 +1,30 @@
 <div class="btn-toolbar">
+  <div class="filter btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+    <label class="btn btn-primary" title="all">
+      <input type="radio" name="options" id="option1"> {{total}}
+    </label>
 
-  <div class="refresh btn-group">
-    <button type="button" class="btn btn-small btn-success">
-      <i class="icon-refresh icon-white"></i>
-      <span class="timer"></span>
-    </button>
-  </div>
+    <label class="btn btn-danger" title="failed">
+      <input type="radio" name="options" id="option1"> {{failed}}
+    </label>
+    <label class="btn btn-default" title="aborted">
+      <input type="radio" name="options" id="option1"> {{aborted}}
+    </label>
+    <label class="btn btn-warning" title="unstable">
+      <input type="radio" name="options" id="option1"> {{unstable}}
+    </label>
+    <label class="btn btn-success" title="succeed">
+      <input type="radio" name="options" id="option1"> {{succeed}}
+    </label>
+    <label class="btn btn-info" title="pending">
+      <input type="radio" name="options" id="option1"> {{pending}}
+    </label>
+    <label class="btn btn-default" title="disabled">
+      <input type="radio" name="options" id="option1"> {{disabled}}
+    </label>
 
-  <div class="filter btn-group pull-right" data-toggle="buttons-radio">
-    <div class="btn-group">
-      <button type="button" class="btn btn-small active" title="all">
-        {{total}}
-      </button>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-small btn-danger" title="failed">
-        {{failed}}
-      </button>
-      <button type="button" class="btn btn-small" title="aborted">
-        {{aborted}}
-      </button>
-      <button type="button" class="btn btn-small btn-warning" title="unstable">
-        {{unstable}}
-      </button>
-      <button type="button" class="btn btn-small btn-success" title="succeed">
-        {{succeed}}
-      </button>
-      <button type="button" class="btn btn-small btn-info" title="pending">
-        {{pending}}
-      </button>
-      <button type="button" class="btn btn-small btn-inverse" title="disabled">
-        {{disabled}}
-      </button>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-small" title="in-progress">
-        <i class="icon-beaker">{{in_progress}}</i>
-      </button>
-    </div>
+    <label class="btn btn-default" title="in-progress">
+      <input type="radio" name="options" id="option1"> {{in_progress}}
+    </label>
   </div>
 </div>

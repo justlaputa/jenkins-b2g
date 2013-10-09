@@ -23,6 +23,8 @@
         jenkins = new Jenkins(Options.jenkins_url);
 
         timer = setInterval(refresh, Options.refresh_time);
+
+        refresh();
     }
 
     start();

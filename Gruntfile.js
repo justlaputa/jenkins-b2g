@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                     src: [
                     'bower_components/jquery/jquery.js',
                     'bower_components/jquery/jquery.min.map',
-                    'bower_components/bootstrap/docs/assets/js/bootstrap.js',
+                    'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/handlebars/handlebars.runtime.js',
                     'bower_components/eventEmitter/EventEmitter.js',
                     ]
@@ -31,16 +31,16 @@ module.exports = function(grunt) {
                     flatten: true,
                     dest: 'app/css/',
                     src: [
-                    'bower_components/bootstrap/docs/assets/css/bootstrap*.css',
+                    'bower_components/bootstrap/dist/css/bootstrap.css',
                     'bower_components/font-awesome/css/font-awesome.css'
                     ]
                 },
                 {
                     expand: true,
                     flatten: true,
-                    dest: 'app/img/',
+                    dest: 'app/fonts/',
                     src: [
-                    'bower_components/bootstrap/docs/assets/img/glyphicons*.png',
+                    'bower_components/bootstrap/dist/fonts/*',
                     ]
                 },
                 {
