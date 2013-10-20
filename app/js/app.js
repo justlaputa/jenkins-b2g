@@ -16,7 +16,7 @@
     var color_map = {
         'aborted': {
             status: 'aborted',
-            type: ''
+            type: 'muted'
         },
         'blue': {
             status: 'succeed',
@@ -32,7 +32,7 @@
         },
         'red': {
             status: 'failed',
-            type: 'important'
+            type: 'danger'
         },
         'yellow': {
             status: 'unstable',
@@ -40,7 +40,7 @@
         },
         'notbuilt': {
             status: 'aborted',
-            type: ''
+            type: 'muted'
         }
     },
 
@@ -133,7 +133,7 @@
         }, 1000);
     }
 
-    $(document).on('click', '#jobs-toolbar .filter button', function() {
+    $(document).on('click', '#jobs-toolbar .filter label', function() {
         var status = $(this).attr('title');
 
         showJobsInStatus(status);
