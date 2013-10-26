@@ -4,7 +4,7 @@
     "bootstrap": "3.x",
     "jquery": "2.x",
     "handlebars": "1.0.x",
-    "font-awesome": "~3.0.2",
+    "font-awesome": "~4.0.0",
     "eventEmitter": "~4.2.4"
   }
 }
