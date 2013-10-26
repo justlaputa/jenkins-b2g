@@ -75,6 +75,11 @@
 
     }
 
+    function switchSection(section) {
+        $('section').addClass('hide');
+        $('#' + section + '-section').removeClass('hide');
+    }
+
     function showJobsInStatus(status) {
         var jobs = $('.job');
 
@@ -139,15 +144,12 @@
         showJobsInStatus(status);
     });
 
-    $(document).on('click', '#jobs-toolbar .refresh button', function() {
-        chrome.runtime.getBackgroundPage(function(backend) {
-            clearInterval(refreshTimerId);
-            backend.refresh();
-        });
+    $(document).on('click', '#job-list table td.name span', function() {
     });
 
-    $(document).on('click', '#job-list table td.name span', function() {
-        chrome.tabs.create({url: $(this).data('href')});
+    $(document).on('click', '#show-jobs-btn', function() {
+        switchSection('jobs');
+        $(this).addClass('hide').prev().removeClass('hide');
     });
 
     function showJenkinsJobs(data) {
@@ -159,6 +161,10 @@
 
         renderJenkinsJobs(data);
     }
+
+    eventbus.on('switch-section', function(data) {
+        switchSection(data);
+    });
 
     eventbus.on('jobs', function(data) {
         showJenkinsJobs(data);

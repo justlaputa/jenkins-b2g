@@ -1,0 +1,18 @@
+<form id="options-form" role="form">
+	<fieldset>
+		<legend>Options</legend>
+		<div class="form-group">
+			<label for="jenkins-url">Jenkins URL:
+				<span><i class="fa"></i></span>
+			</label>
+			<input type="text" class="form-control" name="jenkins-url" value="{{jenkins_url}}" placeholder="Input Jenkins URL here">
+		</div>
+		<div class="form-group">
+			<label for="refresh-time">Refresh Interval (min):
+				<span><i class="fa"></i></span>
+			</label>
+			<input type="range" name="refresh-time" min="5" max="30" step="5" value="{{refresh_time}}">
+			<output name="refresh-time-value" for="refresh-time" value="{{refresh_time}}"></output>
+		</div>
+	</fieldset>
+</form>

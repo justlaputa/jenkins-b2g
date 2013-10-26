@@ -2,7 +2,6 @@
     var jenkins = null
         timer = null;
 
-
     function refresh() {
         console.log('start to request data');
 
@@ -22,7 +21,7 @@
     function start() {
         jenkins = new Jenkins(Options.jenkins_url);
 
-        timer = setInterval(refresh, Options.refresh_time);
+        timer = setInterval(refresh, Options.refresh_time * 60000);
 
         refresh();
     }
