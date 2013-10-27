@@ -109,8 +109,8 @@
     }
 
     function setRefreshButton(text, spin) {
-        var $timer = $('#jobs-toolbar .refresh .timer'),
-        $icon = $('#jobs-toolbar .refresh i');
+        var $timer = $('#refresh-btn span'),
+        $icon = $('#refresh-btn i');
 
         $timer.text(text);
         $icon.toggleClass('icon-spin', spin);
@@ -162,6 +162,10 @@
         renderJenkinsJobs(data);
     }
 
+    eventbus.on('refresh', function() {
+        resetTimer(Options.refresh_time * 60);
+    });
+
     eventbus.on('switch-section', function(data) {
         switchSection(data);
     });
@@ -173,4 +177,6 @@
     eventbus.on('loading', function() {
         setRefreshButton('Loading...', true);
     });
+
+    resetTimer(Options.refresh_time * 60);
 } (window, jQuery));
