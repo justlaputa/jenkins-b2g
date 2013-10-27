@@ -111,6 +111,7 @@
     function showRefreshLoading(show) {
         $('#refresh-btn span.timer').toggleClass('hide', show);
         $('#refresh-btn span.loading').toggleClass('hide', !show);
+        $('#refresh-btn i').toggleClass('fa-spin', show);
     }
 
     function setRefreshTime(time) {

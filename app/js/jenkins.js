@@ -15,7 +15,7 @@
     //callback(err, data)
     Jenkins.prototype.getJobs = function(callback) {
 
-        $.ajax({url: '/jobs.json', dataType: 'json'}).done(function(data) {
+        $.ajax({url: this.url + query.jobs, dataType: 'json'}).done(function(data) {
 
             console.log('get jenkins data: ', data);
 
