@@ -108,12 +108,13 @@
         $('#job-list').text('fail to load');
     }
 
-    function setRefreshButton(text, spin) {
-        var $timer = $('#refresh-btn span'),
-        $icon = $('#refresh-btn i');
+    function showRefreshLoading(show) {
+        $('#refresh-btn span.timer').toggleClass('hide', show);
+        $('#refresh-btn span.loading').toggleClass('hide', !show);
+    }
 
-        $timer.text(text);
-        $icon.toggleClass('icon-spin', spin);
+    function setRefreshTime(time) {
+        $('#refresh-btn span.timer').text(time);
     }
 
     function resetTimer(time) {
@@ -121,7 +122,7 @@
             clearInterval(refreshTimerId);
         }
 
-        refreshTimerId = setInterval(function() {
+        function updateTime() {
             var min = 0,
             sec = 0;
 
@@ -131,11 +132,15 @@
             sec = time % 60;
 
             if (time <=0) {
-                setRefreshButton('Loading...', true);
+                showRefreshLoading(true);    
             } else {
-                setRefreshButton(min + ':' + sec, false);
+                setRefreshTime(min + ':' + sec, false);
             }
-        }, 1000);
+        }
+
+        updateTime();
+
+        refreshTimerId = setInterval(updateTime, 1000);
     }
 
     $(document).on('click', '#jobs-toolbar .filter label', function() {
@@ -163,6 +168,7 @@
     }
 
     eventbus.on('refresh', function() {
+        showRefreshLoading(true);
         resetTimer(Options.refresh_time * 60);
     });
 
@@ -171,11 +177,8 @@
     });
 
     eventbus.on('jobs', function(data) {
+        showRefreshLoading(false);
         showJenkinsJobs(data);
-    });
-
-    eventbus.on('loading', function() {
-        setRefreshButton('Loading...', true);
     });
 
     resetTimer(Options.refresh_time * 60);

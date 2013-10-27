@@ -35,6 +35,8 @@
 
 		input.parent().find('span').addClass('text-success')
 			.text('saved').prepend($('<i>', { 'class' : 'fa fa-check' }));
+
+		eventbus.trigger('reset');
 	});
 
 	loadOptions();
