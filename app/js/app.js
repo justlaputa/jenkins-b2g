@@ -158,6 +158,10 @@
         $(this).addClass('hide').prev().removeClass('hide');
     });
 
+    $(document).on('click', '#refresh-btn', function() {
+        eventbus.trigger('reset');
+    });
+
     function showJenkinsJobs(data) {
         console.log(data);
         processData(data);
