@@ -8,5 +8,8 @@
     "url": "http://laputa.io"
   },
   "default_locale": "en",
-  "type": "privileged"
+  "type": "privileged",
+  "icons": {
+    "128": "/img/icons/128.png"
+  }
 }
