@@ -11,5 +11,10 @@
   "type": "privileged",
   "icons": {
     "128": "/img/icons/128.png"
+  },
+  "permissions": {
+    "systemXHR": {
+      "description": "Required for cross domain request"
+    }
   }
 }
