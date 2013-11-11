@@ -158,7 +158,10 @@
         $(this).addClass('hide').prev().removeClass('hide');
     });
 
-    $(document).on('click', '#refresh-btn', function() {
+    $(document).on('click', '#refresh-btn', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
         eventbus.trigger('reset');
     });
 
