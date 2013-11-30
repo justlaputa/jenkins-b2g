@@ -1,18 +1,51 @@
 (function(window, $) {
-	var options = {};
 
-	function loadOptions () {
-		options = {
+	function Option() {
+		this.jenkins_url = "";
+		this.refresh_time = 0;
+
+		this.defaults = {
 			jenkins_url: 'https://builds.apache.org/',
 			refresh_time: 5
 		};
 
-		$('#options').html(templates['options'](options));
+		if (!window.localStorage['jenkins_url']) {
+			this.reset();
+		}
 	}
 
-	function saveOptions(new_options) {
-		$.extend(options, new_options);
+	Option.prototype.get = function(key) {
+		var value = window.localStorage[key];
+
+		if (key === 'refresh_time') {
+			value = parseInt(value);
+		}
+
+		return value;
 	}
+
+	Option.prototype.set = function(key, value) {
+		window.localStorage[key] = value;
+	}
+
+	Option.prototype.all = function() {
+		return 	{
+			jenkins_url: window.localStorage['jenkins_url'],
+			refresh_time: window.localStorage['refresh_time']
+		}
+	};
+
+	Option.prototype.defaults = function() {
+		return this.defaults;
+	}
+
+	Option.prototype.reset = function() {
+		for (var key in this.defaults) {
+			window.localStorage[key] = this.defaults[key];
+		}
+	}
+
+	window.Options = new Option();
 
 	$(document).on('click', '#options-btn', function() {
 		eventbus.trigger('switch-section', ['options']);
@@ -25,9 +58,7 @@
 		name = input.attr('name'),
 		value = input.val();
 
-		option[name] = value;
-
-		saveOptions(option);
+		window.Options.set(name, value);
 
 		if (input.attr('type') === 'range') {
 			input.next().val(value);
@@ -39,7 +70,11 @@
 		eventbus.trigger('reset');
 	});
 
-	loadOptions();
+	function loadOptions () {
+		var options = window.Options.all();
 
-	window.Options =  options;
+		$('#options').html(templates['options'](options));
+	}
+
+	loadOptions();
 } (window, jQuery));

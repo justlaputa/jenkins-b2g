@@ -177,7 +177,7 @@
 
     eventbus.on('refresh', function() {
         showRefreshLoading(true);
-        resetTimer(Options.refresh_time * 60);
+        resetTimer(Options.get('refresh_time') * 60);
     });
 
     eventbus.on('switch-section', function(data) {
@@ -189,5 +189,5 @@
         showJenkinsJobs(data);
     });
 
-    resetTimer(Options.refresh_time * 60);
+    resetTimer(Options.get('refresh_time') * 60);
 } (window, jQuery));
