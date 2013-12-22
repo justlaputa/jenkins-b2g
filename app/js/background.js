@@ -21,11 +21,17 @@
     }
 
     function start() {
-        jenkins = new Jenkins(Options.get('jenkins_url'));
 
         if (timer !== null) {
             clearInterval(timer);
+            timer = null;
         }
+
+        if (Options.get('jenkins_url') === '') {
+            return;
+        }
+
+        jenkins = new Jenkins(Options.get('jenkins_url'));
 
         timer = setInterval(refresh, Options.get('refresh_time') * 60000);
 

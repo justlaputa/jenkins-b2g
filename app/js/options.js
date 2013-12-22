@@ -5,7 +5,7 @@
 		this.refresh_time = 0;
 
 		this.defaults = {
-			jenkins_url: 'https://builds.apache.org/',
+			jenkins_url: '',
 			refresh_time: 5
 		};
 

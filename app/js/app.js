@@ -189,5 +189,11 @@
         showJenkinsJobs(data);
     });
 
-    resetTimer(Options.get('refresh_time') * 60);
+    if (Options.get('jenkins_url') !== '') {
+        resetTimer(Options.get('refresh_time') * 60);
+    } else {
+        $('#show-jobs-btn').removeClass('hide');
+        $('#options-btn').addClass('hide');
+        switchSection('options');
+    }
 } (window, jQuery));
