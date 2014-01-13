@@ -58,6 +58,13 @@
 		name = input.attr('name'),
 		value = input.val();
 
+		if (name === 'jenkins_url') {
+			if (value[value.length - 1] !== '/') {
+				value += '/';
+				input.val(value);
+			}
+		}
+
 		window.Options.set(name, value);
 
 		if (input.attr('type') === 'range') {
